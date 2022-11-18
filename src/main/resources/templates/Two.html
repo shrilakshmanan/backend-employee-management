@@ -1,0 +1,66 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+<style>
+	Body {
+		font-family: Calibri, Helvetica, sans-serif;
+
+	}
+
+	.center {
+		text-align: center;
+
+	}
+
+	.cntr {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+</style>
+
+<body>
+
+	<div class="container">
+		<h1>Details</h1>
+		<br>
+		<table border="2" class="table table-striped">
+
+			<thead>
+				<tr class="table">
+				
+					<th class="text-uppercase" scope="col">Employee Emailid</th>
+				
+				<th class="text-uppercase" scope="col">password</th>
+				</tr>
+			</thead>	
+			<tbody>
+				<tr th:each="Det: ${Datas}">
+					
+					<td class="font-weight-bold" th:text="${Det.Emailid}"></td>
+					<td class="font-weight-bold" th:text="${Det.password}"></td>
+		
+				</tr>
+			</tbody>
+		</table>
+		
+	</div>
+
+</body>
+
+</html>

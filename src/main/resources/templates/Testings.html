@@ -1,0 +1,13 @@
+<html>
+<form th:action="@{/suggest-event}"  method="post">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div th:switch="${message}">
+    <div th:case="'Success'" class="alert alert-success">
+        <strong>Success!</strong> Operation performed successfully.
+    </div>
+    <div th:case="'Failed'" class="alert alert-danger">
+        <strong>Failure!</strong> Operation failed. Please try again 
+    </div>
+</div><div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+</html>

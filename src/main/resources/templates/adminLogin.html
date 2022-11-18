@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+	<section class="vh-100"
+		style="  background-image: url('https://cdn3.vectorstock.com/i/1000x1000/43/82/abstract-gradient-background-vector-11574382.jpg'); background-repeat: no-repeat;">
+		<div class="container py-5 h-110">
+			<div class="row d-flex justify-content-center align-items-center h-100 ">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card shadow-2-strong" style="border-radius: 1rem;">
+						<div class="card-body p-5 text-center">
+							<h3 class="mb-5">Admin Login</h3>
+
+							<form th:action="@{admin_check/Emailid/password}" th:object="${Admin_cls}" method="post">
+								<div class="form-outline mb-4">
+									<label class="form-label" for="typeEmailX-2"><strong>Admin mail id</strong></label>
+									<input type="Email" id="fname" name="Emailid" class="form-control form-control-lg"
+										placeholder="enter the Admin mailid " autocomplete="off" required />
+
+								</div>
+
+								<div class="form-outline mb-4">
+									<label class="form-label" for="typePasswordX-2"><strong>Admin
+											Password</strong></label>
+									<input type="password" id="pass" name="password"
+										class="form-control form-control-lg" autocomplete="off"
+										placeholder="enter the password" required />
+
+								</div>
+
+
+
+								<button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+							</form>
+
+
+							<hr class="my-4">
+<a th:href="@{/AfterHomepage}"  id="l">back</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

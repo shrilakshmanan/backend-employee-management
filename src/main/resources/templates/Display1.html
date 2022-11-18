@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+	.center {
+		text-align: center;
+
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	th {
+		text-align: center;
+		background-color: aqua;
+	}
+
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	input[type=text] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border: 2px solid blue;
+		border-radius: 4px;
+	}
+
+	input[type=date] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border: 2px solid blue;
+		border-radius: 4px;
+	}
+</style>
+
+<body>
+
+	<div class="container">
+		<h1 class="center">ToDo Lists</h1>
+
+		<br>
+		<div class="center">
+
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				Add New ToDoList
+			</button>
+
+		</div>
+		<br>
+
+		<table border="2" class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Description</th>
+					<th> Date </th>
+					<th colspan="2"> Actions </th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="Det: ${Display_Al}">
+					<td class="font-weight-bold" th:text="${Det.id}"></td>
+					<td class="font-weight-bold" th:text="${Det.Description}"></td>
+					<td class="font-weight-bold" th:text="${Det.Target_Date}"></td>
+					<td>
+						<a th:href="@{/updateSchedule/{id}(id=${Det.id})}" class="fa"
+							style="font-size:25px;">&#xf044;</a>
+
+
+					</td>
+					<td>
+						<a th:href="@{/deleteSchedule/{id}(id=${Det.id})}" class="fa fa-trash-o"
+							style="font-size:30px;color:blue"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+	<!-- Modal -->
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">	
+				<div class="modal-header">
+
+					<h2 class="modal-title" id="exampleModalLabel"> Schedule</h2>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<form th:action="@{/saveDetails}" th:object="${pojo_cls}" method="POST">
+
+						<div class="form-outline form-white mb-4">
+							<label class="form-label" for="fname">Description</label>
+							<input style="  border-radius: 25px;" type="text" name="Description"
+								placeholder="Add Your new todo" required class="form-control form-control-lg" />
+
+							<br>
+						</div>
+
+						<div class="form-outline form-white mb-4">
+							<label class="form-label" for="Date">Target_Date</label>
+							<input style="  border-radius: 25px;" type="date" id="lname" name="Target_Date" required
+								class="form-control form-control-lg" />
+
+						</div>
+
+						<br>
+
+						<button class="btn btn-primary" type="submit">Submit</button>
+
+						<br>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,499 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+
+
+
+
+<style type="text/css">
+	input[type=submit] {
+		background-color: #2C3E50;
+		color: white;
+		padding: 12px 20px;
+		cursor: pointer;
+	}
+
+	input[type=text] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=number] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=email] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+
+	#l {
+
+		background-color: #f60;
+		color: white;
+		padding: 12px 10px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	#first {
+		background-image: url("https://images.unsplash.com/photo-1514826786317-59744fe2a548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWFjYm9vayUyMHByb3xlbnwwfHwwfHw%3D&w=1000&q=80");
+		height: 380px;
+		padding: 147px;
+		margin: 10px;
+
+		background-size: cover;
+		position: relative;
+
+	}
+
+	#bottom {
+		background-image: url("https://media.istockphoto.com/photos/hacker-working-on-laptop-in-the-dark-picture-id1152537185?k=20&m=1152537185&s=170667a&w=0&h=2SNoKrqxIYiFHkfZhqGM8bH2p_lt16FvlkgwEIv-gxg= ");
+		height: 600px;
+		width: 1290px;
+		background-position: center;
+		border-radius: 100px;
+		background-size: cover;
+		position: relative;
+	}
+
+	#box {
+
+		background-position: center;
+		background-size: cover;
+		position: relative;
+
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		padding: 40px;
+		min-width: 5px;
+		margin: 180px;
+		gap: 2px 50px;
+		height: 700px;
+	}
+
+	.grid-item {
+		background-color: #DDE2E7;
+		padding: 2px;
+		font-size: 40px;
+		text-align: center;
+	}
+
+	.top-left {
+		position: absolute;
+		top: 8px;
+		color: white;
+		left: 60px;
+	}
+
+	#log {
+
+		color: black;
+		padding: 12px 10px;
+		border-radius: 6px;
+		border-color: #f60;
+		cursor: pointer;
+	}
+
+	.top-right {
+		position: absolute;
+		top: 8px;
+		right: 16px;
+		color: white;
+	}
+
+	#form {
+		padding-top: 10px;
+		padding-bottom: 1 5px;
+	}
+
+	Body {
+		font-family: Calibri, Helvetica, sans-serif;
+
+	}
+
+	.center {
+		text-align: center;
+
+	}
+
+	.cntr {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	body {
+		font-family: "Lato", sans-serif;
+	}
+
+	.sidenav {
+		height: 100%;
+		width: 0%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: rgb(255, 255, 255);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		text-align: center;
+	}
+
+	.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+
+	}
+
+	.sidenav a:hover {}
+
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+
+	}
+
+	.bottom {
+		margin-bottom: 250px
+	}
+
+	@media screen and (max-height: 450px) {
+		.sidenav {
+			padding-top: 15px;
+		}
+
+		.sidenav a {
+			font-size: 18px;
+		}
+	}
+
+	.center {
+		text-align: center;
+
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	th {
+		text-align: center;
+
+	}
+
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	input[type=text] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border: 2px solid blue;
+		border-radius: 4px;
+	}
+
+	input[type=date] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+		border: 2px solid blue;
+		border-radius: 4px;
+	}
+
+	a {
+		color: black;
+	}
+
+	a:hover {
+		color: #26BBE3;
+	}
+</style>
+
+<body>
+	<fieldset>
+
+		<center class="bottom">
+
+			<div id="first">
+				<div class="top-left"><b style="font-size: 20px;padding-left:15px"> </b></div>
+
+				<a class="top-right" th:href="@{/}">
+					<p th:text="${name}"></p>
+				</a>
+
+
+				<h1 style="color: white"><span style="font-size: 100%;">.SQUARE</span></h1>
+
+				<h2 style="color: white">clean code easy to customize</h2>
+
+
+			</div>
+			<div style="background-color: #26BBE3;">
+				<form id="form">
+					<br>
+					<br>
+
+
+
+					<div id="mySidenav" class="sidenav">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<a th:href="@{/sendmail/{ids} (ids=${ids})}">Apply for Leave</a>
+						<a data-toggle="modal" data-target=".bd-example-modal-lg">Details</a>
+						<a data-toggle="modal" data-target=".bd-example-modal-sm">leave status</a>
+					
+						
+							<a type="button"  data-toggle="modal" data-target="#exampleModal">
+ Display projects
+</a>
+
+						<a th:href="@{/Help/{ids} (ids=${ids})}">Help and support</a>
+						<a data-toggle="modal" data-target=".bd-example-modal-mds">Query status</a>
+					</div>
+
+
+					<span class="top-left" style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776;
+					</span>
+
+
+
+
+		</center>
+
+		<br>
+
+
+
+
+
+		<div class="container">
+			<br>
+			<div class="center">
+				<!-- Button trigger modal -->
+
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-body">
+								<table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col">Employee Name</th>
+											<th class="text-uppercase" scope="col">Employee password</th>
+
+											<th class="text-uppercase" scope="col">salary</th>
+											<th class="text-uppercase" scope="col">Employee Email-id</th>
+											<th class="text-uppercase" scope="col">Job role</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${password}">
+											<td class="font-weight-bold" th:text="${password.username}"></td>
+											<td class="font-weight-bold" th:text="${password.password}"></td>
+
+											<td class="font-weight-bold" th:text="${password.salary.salary}"></td>
+											<td class="font-weight-bold" th:text="${password.Emailid}"></td>
+											<td class="font-weight-bold" th:text="${password.salary.position}"></td>
+
+
+
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+				<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-body">
+								<table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col">lEAVE STARTDATE</th>
+											<th class="text-uppercase" scope="col">leave enddate</th>
+
+											<th class="text-uppercase" scope="col">category</th>
+											<th class="text-uppercase" scope="col">reason</th>
+											<th class="text-uppercase" scope="col">status</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${leaves}">
+											<td class="font-weight-bold" th:text="${Det.Leavestartdate}"></td>
+											<td class="font-weight-bold" th:text="${Det.leaveenddate}"></td>
+
+
+											<td class="font-weight-bold" th:text="${Det.category}"></td>
+											<td class="font-weight-bold" th:text="${Det.Reason}"></td>
+											<td class="font-weight-bold" th:text="${Det.status}"></td>
+
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+   
+      <div class="modal-body">
+   <table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col" >project name</th>
+											<th class="text-uppercase" scope="col">project startdate</th>
+											<th class="text-uppercase" scope="col">project enddate</th>
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${projectsdata}">
+											<td class="font-weight-bold" th:text="${Det.projectname}"></td>
+											<td class="font-weight-bold" th:text="${Det.startdate}"></td>
+											<td class="font-weight-bold" th:text="${Det.enddate}"></td>
+										</tr>
+									</tbody>
+
+								</table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+				<div class="modal fade bd-example-modal-mds" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-body">
+								<table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col">Query</th>
+											<th class="text-uppercase" scope="col">Status</th>
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${queries}">
+											<td class="font-weight-bold" th:text="${Det.queries}"></td>
+											<td class="font-weight-bold" th:text="${Det.status}"></td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+
+
+
+		<script>
+
+
+
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "20%";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+			}
+		</script>
+		</script>
+</body>
+
+</html>

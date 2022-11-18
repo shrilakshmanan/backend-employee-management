@@ -1,0 +1,245 @@
+	<fieldset>
+
+		<center class="bottom">
+			<div class="wrapper">
+				<div class="sidebar">
+        <h2>Welcome <p th:text="${name}"></p></h2>
+        <div class="top-right"><b><a style=" color:white;" th:href="@{/}" class="btn btn-primary">Logout</a></b></div>
+        <ul>
+            <li><a th:href="@{/managerdisplays}"><i class="fas fa-home"></i>Home</a></li>
+            <li><a th:href="@{/MangrDisply}" id="l"><i class="fas fa-user"></i>Display All Employee</a></li>	
+            <li><a th:href="@{/sendmail}"><i class="fas fa-address-card"></i>Apply for Leave</a></li>
+            <li><a th:href="@{/addproject}"><i class="fas fa-project-diagram"></i>New project</a></li>
+            <li><a th:href="@{/ManagerDisplayProjects}"><i class="fas fa-blog"></i>Display All Projects</a></li>
+                   	 <li><a  data-toggle="modal" data-target=".bd-example-modal-mds"><i class="fas fa-blog"></i>Query status</a></li>
+            	 <li><a  data-toggle="modal" data-target=".bd-example-modal-sm"><i class="fas fa-blog"></i>leave status</a></li>
+           
+            <li><a th:href="@{/Help}"><i class="fas fa-address-book"></i>Help and support</a></li>
+     
+        </ul> 
+        <div class="social_media">
+          <a href="https://www.facebook.com/login/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+
+				<div class="main_content">
+
+					<div class="info">
+						<div id="first">
+							<div class="top-left"><b style="font-size: 20px;padding-left:15px"><h1>Manager Dashboard </h1></b></div>
+
+
+
+<div class="container bootstrap snippets bootdey">
+  <div class="row">
+    <div class="col-lg-2 col-sm-6" style="margin:35px">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content dark-blue">
+          <div class="circle-tile-description text-faded"> leave counts</div>
+            <div th:text="${leavecount}" class="circle-tile-number text-faded "></div>
+          <a class="circle-tile-footer" href="#"> <i class=""></i></a>
+        </div>
+      </div>
+    </div>
+     
+    <div class="col-lg-2 col-sm-6" style="margin:35px">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading red"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content red">
+          <div class="circle-tile-description text-faded"> Employees </div>
+  <div th:text="${count}" class="circle-tile-number text-faded "></div>
+          <a class="circle-tile-footer" th:href="@{/MangrDisply}"> <i class="	"></i></a>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="col-lg-2 col-sm-6"  style="margin:35px">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading yellow "><i class="fa fas fa-project-diagram fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content yellow">
+          <div class="circle-tile-description text-faded">projects count</div>
+          <div th:text="${projectcount}" class="circle-tile-number text-faded "></div>
+          <a class="circle-tile-footer"th:href="@{/ManagerDisplayProjects}"> <i class=""></i></a>
+        </div>
+      </div>
+    </div> 
+     
+    <div class="col-lg-2 col-sm-6"  style="margin:35px">
+      <div class="circle-tile ">
+        <a href="#"><div class="circle-tile-heading orange"><i class="fa fa-comments fa-fw fa-3x"></i></div></a>
+        <div class="circle-tile-content orange">
+          <div class="circle-tile-description text-faded"> Queries </div>
+       <div th:text="${querycount}" class="circle-tile-number text-faded "></div>
+          <a class="circle-tile-footer" href="#"> <i class=""></i></a>
+        </div>
+      </div>
+    </div> 
+  </div> 
+</div>  
+
+						<div class="modal fade bd-example-modal-mds" tabindex="-1" role="dialog"
+							aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-body">
+										<table border="2" class="table table-striped">
+
+
+											<thead>
+												<tr class="table">
+
+													<th class="text-uppercase" scope="col">Query</th>
+													<th class="text-uppercase" scope="col">Status</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="Det: ${queries}">
+													<td class="font-weight-bold" th:text="${Det.queries}"></td>
+													<td class="font-weight-bold" th:text="${Det.status}"></td>
+												</tr>
+											</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+						<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+							aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-body">
+										<table border="2" class="table table-striped">
+
+
+											<thead>
+												<tr class="table">
+
+													<th class="text-uppercase" scope="col">lEAVE STARTDATE</th>
+													<th class="text-uppercase" scope="col">leave enddate</th>
+
+													<th class="text-uppercase" scope="col">category</th>
+													<th class="text-uppercase" scope="col">reason</th>
+													<th class="text-uppercase" scope="col">status</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="Det: ${leaves}">
+													<td class="font-weight-bold" th:text="${Det.Leavestartdate}"></td>
+													<td class="font-weight-bold" th:text="${Det.leaveenddate}"></td>
+
+
+													<td class="font-weight-bold" th:text="${Det.category}"></td>
+													<td class="font-weight-bold" th:text="${Det.Reason}"></td>
+													<td class="font-weight-bold" th:text="${Det.status}"></td>
+
+												</tr>
+											</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div>
+							<form id="form">
+								<br>
+								<br>
+
+
+		</center>
+
+		<br>
+
+
+		
+				<br>
+
+
+
+
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+
+
+		<div class="container">
+			<br>
+			<div class="center">
+				<!-- Button trigger modal -->
+
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-body">
+								<table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col">Employee Name</th>
+											<th class="text-uppercase" scope="col">Employee password</th>
+
+											<th class="text-uppercase" scope="col">Employee Email-id</th>
+											<th class="text-uppercase" scope="col">Job role</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${password}">
+											<td class="font-weight-bold" th:text="${password.username}"></td>
+											<td class="font-weight-bold" th:text="${password.password}"></td>
+
+											<td class="font-weight-bold" th:text="${password.Emailid}"></td>
+											<td class="font-weight-bold" th:text="${password.jobdesc}"></td>
+
+
+
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+			</div>
+		</div>
+		</div>
+
+
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+</div>

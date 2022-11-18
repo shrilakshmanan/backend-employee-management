@@ -1,0 +1,841 @@
+
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+
+
+
+
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		list-style: none;
+		text-decoration: none;
+		font-family: 'Josefin Sans', sans-serif;
+	}
+
+	body {
+		background-color: #f3f5f9;
+	}
+	.circle-tile {
+    margin-bottom: 15px;
+    text-align: center;
+}
+.circle-tile-heading {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    color: #FFFFFF;
+    height: 80px;
+    margin: 0 auto -40px;
+    position: relative;
+    transition: all 0.3s ease-in-out 0s;
+    width: 80px;
+}
+.circle-tile-heading .fa {
+    line-height: 80px;
+}
+.circle-tile-content {
+    padding-top: 50px;
+}
+.circle-tile-number {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    padding: 15px 0 15px;
+}
+.circle-tile-description {
+    text-transform: uppercase;
+}
+.circle-tile-footer {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    display: block;
+    padding: 5px;
+    transition: all 0.3s ease-in-out 0s;
+}
+.circle-tile-footer:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+.circle-tile-heading.dark-blue:hover {
+    background-color: #2E4154;
+}
+.circle-tile-heading.green:hover {
+    background-color: #138F77;
+}
+.circle-tile-heading.orange:hover {
+    background-color: #DA8C10;
+}
+.circle-tile-heading.blue:hover {
+    background-color: #2473A6;
+}
+.circle-tile-heading.red:hover {
+    background-color: #CF4435;
+}
+.circle-tile-heading.purple:hover {
+    background-color: #7F3D9B;
+}
+.tile-img {
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9);
+}
+
+.dark-blue {
+    background-color: #34495E;
+}
+.green {
+    background-color: #16A085;
+}
+.blue {
+    background-color: #2980B9;
+}
+.orange {
+    background-color: #F39C12;
+}
+.red {
+    background-color: #E74C3C;
+}
+.purple {
+    background-color: #8E44AD;
+}
+.dark-gray {
+    background-color: #7F8C8D;
+}
+.gray {
+    background-color: #95A5A6;
+}
+.light-gray {
+    background-color: #BDC3C7;
+}
+.yellow {
+    background-color: #F1C40F;
+}
+.text-dark-blue {
+    color: #34495E;
+}
+.text-green {
+    color: #16A085;
+}
+.text-blue {
+    color: #2980B9;
+}
+.text-orange {
+    color: #F39C12;
+}
+.text-red {
+    color: #E74C3C;
+}
+.text-purple {
+    color: #8E44AD;
+}
+.text-faded {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+
+	.wrapper {
+		display: flex;
+		position: relative;
+	}
+
+	.wrapper .sidebar {
+		width: 200px;
+		height: 100%;
+		background: #4b4276;
+		padding: 30px 0px;
+		position: fixed;
+	}
+
+	.wrapper .sidebar h2 {
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		margin-bottom: 30px;
+		font-size: large;
+		font-weight: bold;
+	}
+
+	.wrapper .sidebar ul li {
+		padding: 25px;
+		border-bottom: 1px solid #bdb8d7;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+		border-top: 1px solid rgba(255, 255, 255, 0.05);
+	}
+
+	.wrapper .sidebar ul li a {
+		color: #bdb8d7;
+		display: block;
+	}
+
+	.wrapper .sidebar ul li a .fas {
+		width: 25px;
+	}
+
+	.wrapper .sidebar ul li:hover {
+		background-color: #594f8d;
+	}
+
+	.wrapper .sidebar ul li:hover a {
+		color: #fff;
+	}
+
+	.wrapper .sidebar .social_media {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+	}
+
+	.wrapper .sidebar .social_media a {
+		display: block;
+		width: 40px;
+		background: #594f8d;
+		height: 40px;
+		line-height: 45px;
+		text-align: center;
+		margin: 0 5px;
+		color: #bdb8d7;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+
+	.wrapper .main_content {
+		width: 100%;
+		margin-left: 200px;
+	}
+
+	.wrapper .main_content .header {
+		padding: 20px;
+		background: #fff;
+		color: #717171;
+		border-bottom: 1px solid #e0e4e8;
+	}
+
+	.wrapper .main_content .info {
+		margin: 20px;
+		color: #717171;
+		line-height: 25px;
+	}
+
+	.wrapper .main_content .info div {
+		margin-bottom: 20px;
+	}
+
+	@media (max-height: 500px) {
+		.social_media {
+			display: none !important;
+		}
+	}
+
+	input[type=submit] {
+		background-color: #2C3E50;
+		color: white;
+		padding: 12px 20px;
+		cursor: pointer;
+	}
+
+	input[type=text] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=number] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=email] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+
+	#l {
+
+
+
+		padding: 12px 10px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+
+
+
+	Body {
+		font-family: Calibri, Helvetica, sans-serif;
+
+	}
+
+	.center {
+		text-align: center;
+
+	}
+
+	.cntr {
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	body {
+		font-family: "Lato", sans-serif;
+	}
+
+	.sidenav {
+		height: 100%;
+		width: 0%;
+		position: fixed;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background-color: rgb(255, 255, 255);
+		overflow-x: hidden;
+		transition: 0.5s;
+		padding-top: 60px;
+		text-align: center;
+	}
+
+	.sidenav a {
+		padding: 8px 8px 8px 32px;
+		text-decoration: none;
+		font-size: 25px;
+		color: #818181;
+		display: block;
+		transition: 0.3s;
+
+	}
+
+	.sidenav a:hover {}
+
+	.sidenav .closebtn {
+		position: absolute;
+		top: 0;
+		right: 25px;
+		font-size: 36px;
+		margin-left: 50px;
+
+	}
+
+	.bottom {
+		margin-bottom: 250px
+	}
+
+	@media screen and (max-height: 450px) {
+		.sidenav {
+			padding-top: 15px;
+		}
+
+		.sidenav a {
+			font-size: 18px;
+		}
+	}
+
+	.center {
+		text-align: center;
+
+	}
+
+	td {
+		text-align: center;
+	}
+
+	tr {
+		text-align: center;
+	}
+
+	th {
+		text-align: center;
+
+	}
+
+
+	th[colspan="2"] {
+		text-align: center;
+	}
+
+	input[type=text] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+
+		border-radius: 4px;
+	}
+
+	input[type=date] {
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+
+		border-radius: 4px;
+	}
+	.top-right {
+		position: absolute;
+		top: 8px;
+		left: 1250px;
+		color: white;
+	}
+	a {
+		color: black;
+	}
+
+	a:hover {
+		color: #26BBE3;
+		text-decoration:none
+	}
+</style>
+
+<body>
+	<fieldset>
+
+		<center class="bottom">
+			<div class="wrapper">
+				<div class="sidebar">
+					<h2>Welcome <p th:text="${name}"></p>
+					</h2>
+							<div class="top-right"><b><a style=" color:white;" th:href="@{/}" class="btn btn-primary">Logout</a></b></div>
+		
+					<ul>
+						<li><a th:href="@{/}"><i class="fas fa-home"></i>Home</a></li>
+					
+						<li><a th:href="@{/empleavemails}"><i class="fas fa-address-card"></i>Apply for
+								Leave</a></li>
+						
+					
+					
+<li><a th:href="@{/updateEmpquery}"><i class="fas fa-address-card"></i> Raised queries</a></li>
+				
+<li><a th:href="@{/leavestatusemp}"><i class="fas fa-address-card"></i> Leave status</a></li>
+
+						<li><a th:href="@{/displayempproject}"><i class="fas fa-address-card"></i> Display projects</a></li>
+
+
+
+						<li><a th:href="@{/empHelp}"><i class="fas fa-address-book"></i>Help and
+								support</a></li>
+
+					</ul>
+
+
+
+
+
+					<div class="social_media">
+						<a href="#"><i class="fab fa-facebook-f"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+
+				<div class="main_content">
+
+					<div class="info">
+						<div id="first">
+							
+							<div class="container h-10">
+			<div class="row d-flex justify-content-center align-items-center h-100 ">
+											
+
+
+
+
+
+		<div class="container">
+		<h2>Update Queries status</h2>
+
+		<form action="#" th:action="@{/saveempqueries}" th:object="${queries}" method="POST">
+		<br>
+				<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column">
+				<div class="icon-box">
+				
+				</div>						
+				<h4 class="modal-title w-100">Are you sure?</h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to Update </p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+				
+			<button type="submit" class="btn btn-info col-2"  > Update </button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+				<label for="cars"><strong>Category</strong></label>
+										<br>
+										<select class="form-outline mb-4 p-1" name="category" id="lname">
+											<option hidden name="category" selected label="Select One...">Select One...</option>
+											<option th:field="*{category}"  name="category" value="This is Regarding details"><strong>This is Regarding details</strong>
+											<option name="category" value="This is Regarding details"><strong>This is Regarding leaves</strong>
+											</option>
+											
+												<option name="category" value="This is Regarding Projects"><strong>This is Regarding Projects</strong></option>
+											<option name="category" value="Some other issues"><strong>Some other issues</strong></option>
+											</option>
+											
+
+										</select>
+										
+										
+										
+
+
+			<input type="text" th:field="*{queryid}" class="form-control mb-4 col-4" readonly hidden >
+			
+				<input type="text" th:field="*{querydate}" class="form-control mb-4 col-4" readonly hidden >
+				<br>
+<label><b>Queries<b></label>
+			<textarea type="text" th:field="*{queries}" class="form-control mb-4 col-4" rows="4" cols="50" ></textarea>
+	
+
+	
+	
+
+			<input type="text" th:field="*{ids}" class="form-control mb-4 col-4" readonly hidden>
+
+		
+		
+		
+				<div class="form-outline mb-4">
+					
+										<br>
+										<select  th:field="*{status}" hidden >
+											<option value="pending" hidden label=" pending" selected >pending</option>
+											<option value="Accepted" ><strong>Accept</strong>
+											</option>
+											<option value="Rejected"	><strong>Reject</strong></option>
+										
+
+
+										</select>
+									</div> 
+									
+
+
+
+			<textarea type="text" th:field="*{response}" class="form-control mb-4 col-4" rows="2" cols="10" hidden ></textarea>
+			
+					
+
+			
+	
+		<a href="#myModal" class="trigger-btn btn btn-primary" data-toggle="modal">update</a>
+	
+	
+		</form>
+	<hr>
+			<a th:href="@{/updateEmpquery}"  style="padding-right:900px"> Back to Queries list</a>
+	
+	</div>
+
+
+  </div> 
+</div>  
+
+						<div class="modal fade bd-example-modal-mds" tabindex="-1" role="dialog"
+							aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-body">
+										<table border="2" class="table table-striped">
+
+
+											<thead>
+												<tr class="table">
+
+													<th class="text-uppercase" scope="col">Query</th>
+													<th class="text-uppercase" scope="col">Status</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="Det: ${queries}">
+													<td class="font-weight-bold" th:text="${Det.queries}"></td>
+													<td class="font-weight-bold" th:text="${Det.status}"></td>
+												</tr>
+											</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
+							aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-body">
+										<table border="2" class="table table-striped">
+
+
+													<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col" >project name</th>
+											<th class="text-uppercase" scope="col">project startdate</th>
+											<th class="text-uppercase" scope="col">project enddate</th>
+
+
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${projectsdata}">
+											<td class="font-weight-bold" th:text="${Det.projectname}"></td>
+											<td class="font-weight-bold" th:text="${Det.startdate}"></td>
+											<td class="font-weight-bold" th:text="${Det.enddate}"></td>
+										</tr>
+									</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+
+						<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
+							aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-content">
+									<div class="modal-body">
+										<table border="2" class="table table-striped">
+
+
+											<thead>
+												<tr class="table">
+
+													<th class="text-uppercase" scope="col">lEAVE STARTDATE</th>
+													<th class="text-uppercase" scope="col">leave enddate</th>
+
+													<th class="text-uppercase" scope="col">category</th>
+													<th class="text-uppercase" scope="col">reason</th>
+													<th class="text-uppercase" scope="col">status</th>
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="Det: ${leaves}">
+													<td class="font-weight-bold" th:text="${Det.Leavestartdate}"></td>
+													<td class="font-weight-bold" th:text="${Det.leaveenddate}"></td>
+
+
+													<td class="font-weight-bold" th:text="${Det.category}"></td>
+													<td class="font-weight-bold" th:text="${Det.Reason}"></td>
+													<td class="font-weight-bold" th:text="${Det.status}"></td>
+
+												</tr>
+											</tbody>
+
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div>
+							<form id="form">
+								<br>
+								<br>
+
+
+		</center>
+
+		<br>
+
+
+		<div class="container">
+			<br>
+			<div class="center">
+				<!-- Button trigger modal -->
+
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-md">
+						<div class="modal-content">
+							<div class="modal-body">
+
+								<form th:action="@{/Datas/Emailid/password/personelmail/Username}"
+									th:object="${jva_clas}" method="post">
+
+
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="Emailid"><strong>Mail_id</strong></label>
+										<input type="email" name="Emailid" autocomplete="off"
+											class="form-control form-control-lg" placeholder="enter the Emailid	"
+											required />
+
+									</div>
+
+
+
+
+									<div class="form-outline mb-4">
+										<label class="form-label" for="Emailid"><strong>Queries</strong></label>
+										<textarea type="email" name="Emailid" autocomplete="off"
+											class="form-control form-control-lg" placeholder="enter the Queries	"
+											required></textarea>
+
+									</div>
+
+									<button class="btn btn-primary btn-lg btn-block" type="submit">Submit and
+										sendmail</button>
+								</form>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+
+
+
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+
+
+		<div class="container">
+			<br>
+			<div class="center">
+				<!-- Button trigger modal -->
+
+				<!-- Modal -->
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+					aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-body">
+								<table border="2" class="table table-striped">
+
+
+									<thead>
+										<tr class="table">
+
+											<th class="text-uppercase" scope="col">Employee Name</th>
+											<th class="text-uppercase" scope="col">Employee password</th>
+
+											<th class="text-uppercase" scope="col">Employee Email-id</th>
+											<th class="text-uppercase" scope="col">Job role</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="Det: ${password}">
+											<td class="font-weight-bold" th:text="${password.username}"></td>
+											<td class="font-weight-bold" th:text="${password.password}"></td>
+
+											<td class="font-weight-bold" th:text="${password.Emailid}"></td>
+											<td class="font-weight-bold" th:text="${password.jobdesc}"></td>
+
+
+
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<br>
+
+			</div>
+		</div>
+		</div>
+
+
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+
+
+
+
+		<script>
+		
+		
+   function GetDays(){
+                var dropdt = new Date(document.getElementById("drop_date").value);
+                var pickdt = new Date(document.getElementById("pick_date").value);
+                return parseInt((pickdt-dropdt) / (24 * 3600 * 1000));
+        }
+
+        function cal(){
+        if(document.getElementById("drop_date")){
+            document.getElementById("numdays2").value=GetDays();
+        }  
+    }
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "20%";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+			}
+
+		</script>
+		<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+		</script>
+</body>
+
+</html>
+
+
+

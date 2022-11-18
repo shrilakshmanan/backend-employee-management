@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>SQUARE</title>
+	
+</head>
+<style type="text/css">
+	input[type=submit] {
+		background-color: #2C3E50;
+		color: white;
+		padding: 12px 20px;
+		cursor: pointer;
+	}
+
+	input[type=text] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=number] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+	input[type=email] {
+		padding: 12px 12px;
+		cursor: pointer;
+	}
+
+
+	#l {
+
+		background-color: #f60;
+		color: white;
+		padding: 12px 10px;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+
+	#first {
+		background-image: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/53/40/0557973e56aeb9d.jpg");
+		height: 280px;
+		padding: 147px;
+		margin: 1px;
+
+		background-size: cover;
+		position: relative;
+
+	}
+
+	#bottom {
+		background-image: url("https://media.istockphoto.com/photos/hacker-working-on-laptop-in-the-dark-picture-id1152537185?k=20&m=1152537185&s=170667a&w=0&h=2SNoKrqxIYiFHkfZhqGM8bH2p_lt16FvlkgwEIv-gxg= ");
+		height: 600px;
+		width: 1290px;
+		background-position: center;
+		border-radius: 100px;
+		background-size: cover;
+		position: relative;
+	}
+
+	#box {
+		
+		background-position: center;
+		background-size: cover;
+		position: relative;
+
+	}
+
+	.grid-container {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		padding: 40px;
+		min-width: 5px;
+		margin: 180px;
+		gap: 2px 50px;
+		height: 700px;
+	}
+
+	.grid-item {
+		background-color: #DDE2E7;
+		padding: 2px;
+		font-size: 40px;
+		text-align: center;
+	}
+
+	.top-left {
+		position: absolute;
+		top: 8px;
+		color: white;
+		left: 60px;
+	}
+
+	#log {
+
+		color: black;
+		padding: 12px 10px;
+		border-radius: 6px;
+		border-color:#f60;
+		cursor: pointer;
+	}
+
+	.top-right {
+		position: absolute;
+		top: 8px;
+		right: 16px;
+		color: white;
+	}
+
+	#form {
+		padding-top: 10px;
+		padding-bottom: 1 5px;
+	}
+</style>
+
+<body>
+	<fieldset>
+
+		<center>
+			<div id="first">
+				<div class="top-left"><b style="font-size: 20px;"> Welcome </b></div>
+
+		<div class="top-right"><b><a style=" color:white;" th:href="@{/AdminLogin}" class="btn btn-primary">Logout</a></b></div>
+				<h1 style="color: white"><span style="font-size: 150%;">.SQUARE</span></h1>
+				<h2 style="color: white">clean code easy to customize</h2>
+				
+				<a th:href="@{/signin}"  id="l">Create new Employee</a>
+                <br>
+                <br>
+                <br>
+                <br>
+          
+                       <a th:href="@{/displays}"  id="l">Display All Employee</a>
+                       <br>
+                <br>
+                <br>
+                <br>
+            
+            
+			</div>
+				
+<br>
+<br>
+				
+		</center>
+		
+		</form>
+		</div>
+		
+	
+
+		
+	</center>
+</body>
+
+</html>
+	
